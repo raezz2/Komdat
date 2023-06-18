@@ -1,0 +1,21 @@
+#include <mega32.h>
+#include <delay.h>
+
+void main (void)
+{
+
+    DDRC = 255;
+while (1)
+    {      
+    //Place your code here
+		PORTC = 0b11111100;
+		//delay_ms (1000);
+		//PORTC = 0b00000000;
+		//delay_ms (1000);
+		//PORTC = 0b01100000;
+		//delay_ms (1000);
+		//PORTC = 0b00000000;
+		//delay_ms (1000);
+        
+    }
+}

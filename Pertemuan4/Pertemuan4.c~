@@ -1,0 +1,26 @@
+#include <delay.h>
+#include <io.h>
+
+// Definisikan pin untuk tujuh-segment display
+#define segment PORTC
+
+// Definisikan pola biner untuk angka 0-9 pada seven-segment display (untuk katoda bersamaan)
+unsigned char display[10] = {0b00111111, 0b00000110, 0b01011011, 0b01001111, 0b01100110, 0b01101101, 0b01111101, 0b00000111, 0b01111111, 0b01100111};
+
+void main(void)
+{
+    // Konfigurasi PORTC sebagai output
+    DDRC = 0xFF;
+
+    // Loop untuk menampilkan angka dari 0-9 secara berurutan
+    while(1)
+    {
+        for(unsigned char i=0; i<10; i++);
+        {
+            // Set nilai pada pin segment dengan pola biner yang sesuai
+            segment = display[i];
+            // Tunggu sejenak sebelum menampilkan digit selanjutnya
+            delay_ms(500);
+        }
+    }
+}
